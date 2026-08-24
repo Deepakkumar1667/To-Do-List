@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TaskFlow is a focused to-do list for organizing your day.">
+  <title>TaskFlow | Your daily to-do list</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div class="brand-mark" aria-hidden="true">TF</div>
+      <div>
+        <p class="eyebrow">Personal workspace</p>
+        <h1>To-Do-List</h1>
+        <p class="subtitle">Organize your day, one task at a time.</p>
+      </div>
+    </header>
+
+    <section class="task-composer" aria-labelledby="add-task-heading">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Make it happen</p>
+          <h2 id="add-task-heading">What needs your attention?</h2>
+        </div>
+      </div>
+      <form class="add-task-form" id="add-task-form">
+        <label class="sr-only" for="task-input">Task title</label>
+        <input id="task-input" name="task" type="text" maxlength="120" placeholder="e.g. Prepare tomorrow's priorities" autocomplete="off">
+        <button class="primary-button" type="submit">Add task</button>
+      </form>
+    </section>
+
+    <section class="task-overview" aria-label="Task overview">
+      <div class="stat-item">
+        <span class="stat-label">Total tasks</span>
+        <strong id="total-count">0</strong>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Active</span>
+        <strong id="active-count">0</strong>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Completed</span>
+        <strong id="completed-count">0</strong>
+      </div>
+    </section>
+
+    <section class="task-list-section" aria-labelledby="task-list-heading">
+      <div class="list-toolbar">
+        <div>
+          <p class="eyebrow">Your workspace</p>
+          <h2 id="task-list-heading">Tasks</h2>
+        </div>
+        <button class="text-button" id="clear-completed" type="button">Clear completed</button>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Filter tasks">
+        <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Active</button>
+        <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Completed</button>
+      </div>
+
+      <div class="task-list" id="task-list" aria-live="polite"></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <div class="empty-state-icon" aria-hidden="true">&#10003;</div>
+        <h3 id="empty-state-title">Your list is clear</h3>
+        <p id="empty-state-message">Add a task above to start shaping your day.</p>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <span>Tasks are saved automatically</span>
+      <span class="status-dot" aria-hidden="true"></span>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
